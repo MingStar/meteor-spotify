@@ -6,7 +6,7 @@ Meteor.setInterval(function () {
 
   track ? Track.update(track._id, t) : Track.insert(t)
 
-  s.percent = Math.round((s.position / t.duration) * 100)
+  s.percent = Math.round(s.position / (t.duration / 1000.0) * 100);
 
   state ? State.update(state._id, s) : State.insert(s)
 
